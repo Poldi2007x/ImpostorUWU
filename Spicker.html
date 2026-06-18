@@ -2,148 +2,128 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Profi-Spicker Karteikarten</title>
+    <title>Ultimativer Rettungs-Spicker Deutsch 7B</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 10mm; background: #f0f0f0; }
-        .grid { 
-            display: grid; 
-            grid-template-columns: 1fr 1fr; 
-            grid-template-rows: repeat(4, 1fr);
-            gap: 5mm; 
-            width: 190mm; 
-            height: 260mm;
-            margin: auto;
-        }
-        .card { 
-            border: 2px solid #000; 
-            background: white; 
-            padding: 8px; 
-            box-sizing: border-box; 
-            display: flex; 
-            flex-direction: column;
-            font-size: 11px;
-            position: relative;
-        }
-        .header { 
-            background: #333; 
-            color: white; 
-            padding: 3px; 
-            font-weight: bold; 
-            text-align: center; 
-            font-size: 13px;
-            margin-bottom: 5px;
-        }
-        .sub { font-weight: bold; text-decoration: underline; margin-top: 4px; display: block; }
-        ul { margin: 3px 0; padding-left: 15px; }
-        li { margin-bottom: 2px; }
-        .formula { background: #eee; padding: 2px; border: 1px dashed #666; font-family: monospace; display: block; margin: 2px 0; }
-        .red { color: #c00; font-weight: bold; }
-        
-        @media print {
-            body { background: white; padding: 0; }
-            .grid { margin: 0; border: none; }
-            .card { border: 1px solid #000; }
-        }
+        body { font-family: 'Helvetica Neue', Arial, sans-serif; margin: 0; padding: 5mm; font-size: 10px; line-height: 1.2; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, 1fr); gap: 4mm; width: 200mm; height: 280mm; }
+        .card { border: 1.5px solid #000; padding: 6px; box-sizing: border-box; background: #fff; display: flex; flex-direction: column; }
+        .header { background: #d00; color: white; padding: 2px 5px; font-weight: bold; text-align: center; font-size: 11px; margin-bottom: 4px; text-transform: uppercase; }
+        .step { background: #eee; border-left: 3px solid #666; margin: 2px 0; padding: 2px 5px; font-weight: bold; }
+        .rule { border: 1px dashed #999; margin: 3px 0; padding: 3px; font-size: 9.5px; background: #fafafa; }
+        b { color: #d00; }
+        .example { font-style: italic; color: #444; border-bottom: 1px solid #ddd; display: block; margin-bottom: 2px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 2px; }
+        td, th { border: 1px solid #ccc; padding: 1px 3px; font-size: 8.5px; }
+        th { background: #f0f0f0; }
     </style>
 </head>
 <body>
 
 <div class="grid">
-    <!-- KARTE 1: DAS vs DASS -->
+    <!-- KARTE 1: DAS vs DASS - DER TEST -->
     <div class="card">
-        <div class="header">1. "das" oder "dass"?</div>
-        <span class="sub">Ersatzprobe (das):</span>
-        Kann man "das" durch <b class="red">dies, jenes</b> oder <b class="red">welches</b> ersetzen? 
-        -> Dann nur <b>ein "s"</b>.
-        <span class="sub">"dass" (Konjunktion):</span>
-        Leitet Nebensätze ein (oft nach Verben des Sagens/Fühlens). 
-        <i>Bsp: Ich hoffe, dass du kommst.</i> (Ersatzprobe klappt hier nicht!)
+        <div class="header">1. das oder dass? (Schritt-Anleitung)</div>
+        <div class="step">Schritt 1: Die Ersatzprobe</div>
+        Ersetze das Wort im Kopf durch <b>"dieses"</b> oder <b>"welches"</b>.
+        <div class="rule">
+            • Klappt es? -> Schreib <b>das</b> (1 s). <br>
+            • Klappt es NICHT? -> Schreib <b>dass</b> (2 s).
+        </div>
+        <div class="step">Schritt 2: Die Signalwörter für "dass"</div>
+        Steht davor ein Komma + <i>ich hoffe, ich finde, er sagt, es ist schade...</i>? Dann ist es fast immer <b>dass</b>.
+        <span class="example">Bsp: Das (Dieses) Buch, das (welches) ich lese, ist gut. Ich hoffe, dass (Ersatzprobe scheitert) es dir gefällt.</span>
     </div>
 
-    <!-- KARTE 2: ZEICHENSETZUNG -->
+    <!-- KARTE 2: PASSIV - DIE BAUANLEITUNG -->
     <div class="card">
-        <div class="header">2. Kommasetzung</div>
-        <span class="sub">Satzreihe (HS + HS):</span> Komma vor <i>denn, aber, doch</i>. Vor <i>und/oder</i> kein Komma nötig.
-        <span class="sub">Satzgefüge (HS + NS):</span> Immer ein Komma! 
-        <span class="sub">Apposition:</span> Einschübe werden eingerahmt. 
-        <i>Bsp: Herr Wolf, <b class="red">der Verkäufer</b>, kam.</i>
-        <span class="sub">Relativsatz:</span> Bezieht sich auf Nomen. 
-        <i>Bsp: Der Hund, <b class="red">der</b> bellt.</i>
+        <div class="header">2. Passiv bilden (Alle Zeiten)</div>
+        <div class="step">Bauplan: Subjekt + werden + Partizip II</div>
+        <table>
+            <tr><th>Zeit</th><th>Hilfsverb</th><th>Beispiel</th></tr>
+            <tr><td>Präsens</td><td>wird</td><td>wird gebaut</td></tr>
+            <tr><td>Präteritum</td><td>wurde</td><td>wurde gebaut</td></tr>
+            <tr><td>Perfekt</td><td>ist ... <b>worden</b></td><td>ist gebaut worden</td></tr>
+            <tr><td>Plquperf.</td><td>war ... <b>worden</b></td><td>war gebaut worden</td></tr>
+            <tr><td>Futur I</td><td>wird ... <b>werden</b></td><td>wird gebaut werden</td></tr>
+        </table>
+        <div class="rule"><b>Wichtig:</b> Im Perfekt/Plquperf. heißt es <b>worden</b>, NICHT geworden!</div>
     </div>
 
-    <!-- KARTE 3: ADVERBIALIEN -->
+    <!-- KARTE 3: ADVERBIALE BESTIMMUNGEN -->
     <div class="card">
-        <div class="header">3. Adverbialien (Satzglieder)</div>
+        <div class="header">3. Adverbiale (Satzglieder finden)</div>
+        <div class="step">Frag das Verb mit diesen Fragen:</div>
+        <table>
+            <tr><td><b>Wo? Wohin?</b></td><td><b>Lokal</b> (Ort)</td><td><i>dort, im Haus</i></td></tr>
+            <tr><td><b>Wann? Wie lange?</b></td><td><b>Temporal</b> (Zeit)</td><td><i>heute, oft</i></td></tr>
+            <tr><td><b>Wie?</b></td><td><b>Modal</b> (Art)</td><td><i>gerne, schnell</i></td></tr>
+            <tr><td><b>Warum? Weshalb?</b></td><td><b>Kausal</b> (Grund)</td><td><i>wegen dir</i></td></tr>
+        </table>
+        <div class="rule"><b>Unterschied:</b> Adverb = Wortart (da). Adverbiale = Satzglied (in dem großen Haus).</div>
+    </div>
+
+    <!-- KARTE 4: ADVERBIALSÄTZE (NEBENSÄTZE) -->
+    <div class="card">
+        <div class="header">4. Adverbialsätze (Wenn-Dann-Sätze)</div>
+        <div class="step">Erkenne sie an der Konjunktion:</div>
         <ul>
-            <li><b>Lokal:</b> Wo? Wohin? (dort, nach links)</li>
-            <li><b>Temporal:</b> Wann? Wie lange? (neulich, oft)</li>
-            <li><b>Modal:</b> Wie? (gerne, umsonst)</li>
-            <li><b>Kausal:</b> Warum? (deshalb, wegen des Regens)</li>
+            <li><b>Zeit (Temporal):</b> als, während, nachdem, bevor, bis.</li>
+            <li><b>Grund (Kausal):</b> weil, da.</li>
+            <li><b>Art (Modal):</b> indem, dadurch dass.</li>
         </ul>
-        <span class="sub">Unterscheidung:</span>
-        <b>Adverb:</b> Wortart (unveränderlich).<br>
-        <b>Adverbiale:</b> Satzglied (kann aus mehreren Wörtern bestehen).
+        <div class="rule"><b>Trick:</b> Wenn du ein Adverbiale (wegen des Regens) in einen Satz umwandeln sollst -> nimm <b>"Weil..."</b>.</div>
+        <span class="example">Bsp: Wegen des Regens (Adverbiale) -> Weil es regnete (Adverbialsatz).</span>
     </div>
 
-    <!-- KARTE 4: ADVERBIALSÄTZE -->
+    <!-- KARTE 5: KONJUNKTIV I (INDIREKTE REDE) -->
     <div class="card">
-        <div class="header">4. Adverbialsätze (Nebensätze)</div>
-        Statt eines Wortes nutzt man einen ganzen Satz:
+        <div class="header">5. Indirekte Rede (Konjunktiv I)</div>
+        <div class="step">Anleitung: Stamm + Endung</div>
+        Nimm den Infinitiv (gehen), streiche "-en" (geh-). Häng an:
+        <div class="rule"><b>-e, -est, -e, -en, -et, -en</b></div>
+        <span class="example">er geh-<b>e</b>, sie hab-<b>e</b>, er sei (Ausnahme!), er könn-<b>e</b>.</span>
+        <div class="step">Sonderfall: K-I sieht aus wie normal?</div>
+        Wenn <i>"sie gehen"</i> (K-I) wie <i>"sie gehen"</i> (Normal) klingt -> Benutze <b>würde + Infinitiv</b> oder <b>Konjunktiv II</b>.
+    </div>
+
+    <!-- KARTE 6: PRÄPOSITIONEN & FÄLLE -->
+    <div class="card">
+        <div class="header">6. Welcher Fall folgt? (Präpositionen)</div>
+        <div class="rule"><b>Dativ (3. Fall):</b> aus, bei, mit, nach, seit, von, zu.</div>
+        <div class="rule"><b>Akkusativ (4. Fall):</b> durch, für, gegen, ohne, um.</div>
+        <div class="step">Wechselpräpositionen (in, auf, vor, unter...)</div>
+        Frag den Satz:
         <ul>
-            <li><b>Temporalsatz:</b> als, während, solange, seit, bis.</li>
-            <li><b>Modalsatz:</b> indem (Art und Weise).</li>
-            <li><b>Kausalsatz:</b> weil, da (Grund).</li>
+            <li><b>Wo?</b> (Position) -> <b>Dativ</b> (auf dem Tisch)</li>
+            <li><b>Wohin?</b> (Bewegung) -> <b>Akkusativ</b> (auf den Tisch)</li>
         </ul>
-        <i>Bsp: Wegen der Narbe (Adverbiale) -> <b class="red">Weil</b> seine Narbe auffiel (Adverbialsatz).</i>
     </div>
 
-    <!-- KARTE 5: PASSIV (ZEITEN) -->
+    <!-- KARTE 7: KOMMASETZUNG (DIESEL-REGELN) -->
     <div class="card">
-        <div class="header">5. Passiv-Formeln (werden + Part. II)</div>
+        <div class="header">7. Komma-Checkliste</div>
+        <div class="step">Immer ein Komma setzen bei:</div>
         <ul>
-            <li><b>Präsens:</b> wird operiert</li>
-            <li><b>Präteritum:</b> wurde operiert</li>
-            <li><b>Perfekt:</b> ist operiert <b class="red">worden</b></li>
-            <li><b>Plquperf:</b> war operiert <b class="red">worden</b></li>
-            <li><b>Futur I:</b> wird operiert <b class="red">werden</b></li>
-            <li><b>Futur II:</b> wird operiert worden sein</li>
+            <li><b>Relativsätzen:</b> Das Haus, <b>das</b> dort steht...</li>
+            <li><b>Nebensätzen:</b> ... , <b>weil</b> / <b>dass</b> / <b>wenn</b> ...</li>
+            <li><b>Appositionen (Einschübe):</b> Herr Meyer, <b>der Lehrer</b>, lacht.</li>
+            <li><b>Aufzählungen:</b> Äpfel, Birnen <b>und</b> (hier kein Komma!) Bananen.</li>
         </ul>
+        <div class="rule">Vor "und" & "oder" steht fast nie ein Komma!</div>
     </div>
 
-    <!-- KARTE 6: KONJUNKTIV I (INDIREKTE REDE) -->
+    <!-- KARTE 8: AKTIVE ZEITFORMEN (ÜBERSICHT) -->
     <div class="card">
-        <div class="header">6. Indirekte Rede (Konjunktiv I)</div>
-        <span class="sub">Bildung:</span> Verbstamm + Endung:
-        <div class="formula">-e, -est, -e, -en, -et, -en</div>
-        <i>Bsp: er komme, sie sei, er habe, ich könne.</i>
-        <span class="sub">Ersatzform (Konjunktiv II):</span>
-        Wenn Konjunktiv I wie der normale Satz (Indikativ) klingt (z.B. "sie fahren"), nutze K-II oder "würde"-Form.
-    </div>
-
-    <!-- KARTE 7: PRÄPOSITIONEN & FÄLLE -->
-    <div class="card">
-        <div class="header">7. Präpositionen & Fälle</div>
-        <ul>
-            <li><b>Dativ:</b> aus, bei, mit, nach, von, zu.</li>
-            <li><b>Akkusativ:</b> durch, für, gegen, ohne, um.</li>
-            <li><b>Genitiv:</b> wegen, trotz, während.</li>
-        </ul>
-        <span class="sub">Wechselpräpositionen:</span>
-        (in, auf, unter, vor...)
-        <div class="formula">Wo? -> <b class="red">Dativ</b> | Wohin? -> <b class="red">Akkusativ</b></div>
-    </div>
-
-    <!-- KARTE 8: AKTIV ZEITFORMEN -->
-    <div class="card">
-        <div class="header">8. Zeitformen (Aktiv)</div>
-        <ul>
-            <li><b>Präsens:</b> ich schreibe (Gegenwart)</li>
-            <li><b>Präteritum:</b> ich schrieb (Erzählform)</li>
-            <li><b>Perfekt:</b> ich habe geschrieben (mündlich)</li>
-            <li><b>Plquperf:</b> ich hatte geschrieben (Vorvergangenheit)</li>
-            <li><b>Futur I:</b> ich werde schreiben (Zukunft)</li>
-            <li><b>Futur II:</b> ich werde geschrieben haben (abgeschl. Zukunft)</li>
-        </ul>
+        <div class="header">8. Aktiv Zeiten (Bsp: schreiben)</div>
+        <table>
+            <tr><td>Präsens</td><td>er schreibt</td></tr>
+            <tr><td>Präteritum</td><td>er <b>schrieb</b></td></tr>
+            <tr><td>Perfekt</td><td>er hat geschrieben</td></tr>
+            <tr><td>Plquperf.</td><td>er <b>hatte</b> geschrieben</td></tr>
+            <tr><td>Futur I</td><td>er wird schreiben</td></tr>
+            <tr><td>Futur II</td><td>er wird geschrieben haben</td></tr>
+        </table>
+        <div class="rule"><b>Plusquamperfekt:</b> Passiert VOR dem Präteritum (Vorvergangenheit).</div>
     </div>
 </div>
 
