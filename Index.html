@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Imposter Game - Local Edition</title>
+    <style>
+        body { 
+            background: #121212; 
+            color: white; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center; 
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .container { max-width: 500px; width: 100%; }
+        
+        h1 { color: #2ecc71; margin-bottom: 30px; }
+        
+        input, button { 
+            padding: 15px; 
+            margin: 10px 0; 
+            border-radius: 8px; 
+            border: none; 
+            font-size: 18px; 
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        input { background: #222; color: white; border: 1px solid #444; }
+        
+        button { background: #2ecc71; color: white; font-weight: bold; cursor: pointer; transition: 0.2s; }
+        button:active { transform: scale(0.98); filter: brightness(0.9); }
+        .btn-secondary { background: #3498db; }
+        .btn-danger { background: #e74c3c; }
+        
+        .card { 
+            background: #1e1e1e; 
+            padding: 40px 20px; 
+            border-radius: 20px; 
+            border: 2px solid #333; 
+            margin-top: 20px;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .imposter-text { color: #e74c3c; font-size: 24px; font-weight: bold; }
+        .innocent-text { color: #2ecc71; font-size: 24px; font-weight: bold; }
+        .word-text { font-size: 32px; margin: 20px 0; letter-spacing: 2px; }
+        
+        #timer { font-size: 60px; margin: 20px; color: #f1c40f; font-weight: bold; }
+        
+        .hidden { display: none; }
+        
+        ul { list-style: none; padding: 0; text-align: left; width: 100%; }
+        li { 
+            background: #252525; 
+            padding: 10px 15px; 
+            margin: 5px 0; 
+            border-radius: 5px; 
+            display: flex; 
+            justify-content: space-between; 
+        }
+
+        .pass-instruction { font-style: italic; color: #888; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🕵️ Imposter Game</h1>
+
+        <!-- SCREEN 1: Setup -->
+        <div id="screen-setup">
+            <input type="text" id="playerName" placeholder="Name eingeben..." onkeypress="if(event.key==='Enter') addPlayer()">
+            <button class="btn-secondary" onclick="addPlayer()">Spieler hinzufügen</button>
+            <ul id="playerList"></ul>
+            <button id="startBtn" class="hidden" onclick="initGame()">Spiel starten</button>
+        </div>
+
+        <!-- SCREEN 2: Reveal (Verdeckt) -->
+        <div id="screen-reveal" class="hidden">
+            <div class="card">
+                <div id="reveal-waiting">
+                    <p class="pass-instruction">Gib das iPad an:</p>
+                    <h2 id="currentPlayerName">---</h2>
+                    <button onclick="showWord()">Mein Wort ansehen</button>
+                </div>
+                
+                <div id="reveal-content" class="hidden">
+                    <p id="roleTitle"></p>
+                    <h1 id="infoText" class="word-text">---</h1>
+                    <p id="hintText" style="color: #aaa;"></p>
+                    <button class="btn-danger" onclick="hideAndNext()">Verstecken & Weitergeben</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCREEN 3: Game/Timer -->
+        <div id="screen-game" class="hidden">
+            <div id="timer">05:00</div>
+            <p>Diskutiert! Wer ist der Imposter?</p>
+            <div class="card">
+                <p>Spieler in dieser Runde:</p>
+                <div id="finalPlayerList"></div>
+            </div>
+            <button class="btn-danger" style="margin-top: 30px;" onclick="resetGame()">Spiel beenden</button>
+        </div>
+    </div>
+
+    <script>
+        const words = [
+            { w: "Pizza", h: "Etwas zu essen" },
+            { w: "Eiffelturm", h: "Eine Sehenswürdigkeit" },
+            { w: "Staubsauger", h: "Haushaltsgerät" },
+            { w: "Pinguin", h: "Ein Tier" },
+            { w: "Fußball", h: "Ein Hobby/Sport" },
+            { w: "Zahnbürste", h: "Hygieneartikel" },
+            { w: "Kino", h: "Ein Ort" },
+            { w: "Smartphone", h: "Technik" }
+        ];
+
+        let players = [];
+        let currentPlayerIndex = 0;
+        let gameData = {
+            word: {},
+            imposterIndex: -1
+        };
+
+        function addPlayer() {
+            const input = document.getElementById('playerName');
+            const name = input.value.trim();
+            if (name) {
+                players.push(name);
+                input.value = "";
+                updatePlayerList();
+            }
+            if (players.length >= 3) {
+                document.getElementById('startBtn').classList.remove('hidden');
+            }
+        }
+
+        function updatePlayerList() {
+            const list = document.getElementById('playerList');
+            list.innerHTML = players.map((p, index) => `
+                <li>${p} <span style="color: #e74c3c; cursor:pointer;" onclick="removePlayer(${index})">✕</span></li>
+            `).join('');
+        }
+
+        function removePlayer(index) {
+            players.splice(index, 1);
+            updatePlayerList();
+            if (players.length < 3) {
+                document.getElementById('startBtn').classList.add('hidden');
+            }
+        }
+
+        function initGame() {
+            // Zufälliges Wort und Imposter wählen
+            gameData.word = words[Math.floor(Math.random() * words.length)];
+            gameData.imposterIndex = Math.floor(Math.random() * players.length);
+            currentPlayerIndex = 0;
+
+            document.getElementById('screen-setup').classList.add('hidden');
+            document.getElementById('screen-reveal').classList.remove('hidden');
+            prepareReveal();
+        }
+
+        function prepareReveal() {
+            document.getElementById('reveal-waiting').classList.remove('hidden');
+            document.getElementById('reveal-content').classList.add('hidden');
+            document.getElementById('currentPlayerName').innerText = players[currentPlayerIndex];
+        }
+
+        function showWord() {
+            document.getElementById('reveal-waiting').classList.add('hidden');
+            document.getElementById('reveal-content').classList.remove('hidden');
+
+            const roleTitle = document.getElementById('roleTitle');
+            const infoText = document.getElementById('infoText');
+            const hintText = document.getElementById('hintText');
+
+            if (currentPlayerIndex === gameData.imposterIndex) {
+                roleTitle.innerText = "DU BIST DER IMPOSTER";
+                roleTitle.className = "imposter-text";
+                infoText.innerText = "???";
+                hintText.innerText = "Hinweis: " + gameData.word.h;
+            } else {
+                roleTitle.innerText = "DU BIST UNSCHULDIG";
+                roleTitle.className = "innocent-text";
+                infoText.innerText = gameData.word.w;
+                hintText.innerText = "Kategorie: " + gameData.word.h;
+            }
+        }
+
+        function hideAndNext() {
+            currentPlayerIndex++;
+            if (currentPlayerIndex < players.length) {
+                prepareReveal();
+            } else {
+                startTimerScreen();
+            }
+        }
+
+        function startTimerScreen() {
+            document.getElementById('screen-reveal').classList.add('hidden');
+            document.getElementById('screen-game').classList.remove('hidden');
+            document.getElementById('finalPlayerList').innerText = players.join(", ");
+            
+            let time = 300;
+            const timerEl = document.getElementById('timer');
+            const interval = setInterval(() => {
+                let m = Math.floor(time / 60);
+                let s = time % 60;
+                timerEl.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
+                if (time <= 0) {
+                    clearInterval(interval);
+                    timerEl.innerText = "ZEIT ABGELAUFEN!";
+                }
+                time--;
+            }, 1000);
+        }
+
+        function resetGame() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>
