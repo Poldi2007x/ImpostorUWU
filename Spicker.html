@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Spickzettel & Karteikarten - Grammatik</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 10px; margin: 0; padding: 0; }
+        .page { width: 210mm; height: 297mm; padding: 10mm; box-sizing: border-box; page-break-after: always; background: white; }
+        h1 { text-align: center; font-size: 16px; border-bottom: 2px solid black; margin-top: 0; }
+        h2 { font-size: 12px; background: #eee; padding: 2px 5px; margin: 5px 0 2px 0; border-left: 4px solid #333; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .box { border: 1px solid #ccc; padding: 5px; margin-bottom: 5px; }
+        table { width: 100%; border-collapse: collapse; font-size: 9px; }
+        th, td { border: 1px solid black; padding: 2px; text-align: left; }
+        th { background: #f2f2f2; }
+        .highlight { font-weight: bold; text-decoration: underline; }
+        
+        /* Karteikarten Layout */
+        .cards-grid { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(4, 1fr); gap: 0; border: 1px solid black; height: 95%; }
+        .card { border: 1px dashed #666; padding: 15px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100%; box-sizing: border-box; }
+        .card-title { font-weight: bold; font-size: 14px; margin-bottom: 10px; color: #444; }
+        .card-content { font-size: 11px; }
+
+        @media print {
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- SEITE 1: KOMPAKTER SPICKZETTEL -->
+<div class="page">
+    <h1>Grammatik-Check: Schulaufgabe Morgen</h1>
+    
+    <div class="grid">
+        <div class="column">
+            <h2>1. Wortarten & das/dass</h2>
+            <div class="box">
+                <b>Das oder Dass?</b><br>
+                • <b>das</b> (1 "s"): Ersatzprobe mit <i>dies, dieses, welches</i> möglich. (Artikel, Relativpronomen, Demonstrativpronomen).<br>
+                • <b>dass</b> (2 "s"): Konjunktion, leitet Nebensätze ein (Sagen, Denken, Fühlen). Nicht ersetzbar!
+            </div>
+            <div class="box">
+                <b>Präpositionen & Fälle</b><br>
+                • <b>Fest:</b> aus (Dat), wegen (Gen), durch (Akk).<br>
+                • <b>Wechselpräpositionen:</b> (in, auf, vor, hinter, unter...) <br>
+                &nbsp;&nbsp;→ <b>Wo?</b> = Dativ (Standort)<br>
+                &nbsp;&nbsp;→ <b>Wohin?</b> = Akkusativ (Richtung)
+            </div>
+
+            <h2>2. Adverbialien & Sätze</h2>
+            <div class="box">
+                • <b>Lokal:</b> Wo/Wohin? (dort, nach Hause)<br>
+                • <b>Temporal:</b> Wann/Wie lange? (gestern, oft)<br>
+                • <b>Modal:</b> Wie/Auf welche Weise? (gerne, vorsichtig)<br>
+                • <b>Kausal:</b> Warum/Weshalb? (wegen des Regens)<br>
+                <b>Adverbialsatz:</b> Nebensatz statt Wort (z.B. "Weil es regnete...")
+            </div>
+
+            <h2>3. Satzbau & Zeichensetzung</h2>
+            <div class="box">
+                • <b>Satzreihe:</b> HS + HS (Komma vor "denn", "aber"; optional vor "und/oder").<br>
+                • <b>Satzgefüge:</b> HS + NS (Komma trennt immer!). NS beginnt mit Konjunktion (weil, dass...) oder Relativpronomen.<br>
+                • <b>Apposition:</b> Einschub zw. Kommas (Herr Wolf, <i>der Verkäufer</i>, ...)
+            </div>
+        </div>
+
+        <div class="column">
+            <h2>4. Verben: Zeiten & Passiv</h2>
+            <table>
+                <tr><th>Zeitform</th><th>Aktiv</th><th>Passiv (werden + Partizip II)</th></tr>
+                <tr><td>Präsens</td><td>ich sage</td><td>ich werde gefragt</td></tr>
+                <tr><td>Präteritum</td><td>ich sagte</td><td>ich wurde gefragt</td></tr>
+                <tr><td>Perfekt</td><td>ich habe gesagt</td><td>ich bin gefragt worden</td></tr>
+                <tr><td>Pl.-qu.-perfekt</td><td>ich hatte gesagt</td><td>ich war gefragt worden</td></tr>
+                <tr><td>Futur I</td><td>ich werde sagen</td><td>ich werde gefragt werden</td></tr>
+            </table>
+
+            <h2>5. Konjunktiv & Indirekte Rede</h2>
+            <div class="box">
+                <b>Konjunktiv I (Indirekte Rede):</b> Stamm + Endung (-e, -est, -e, -en, -et, -en).<br>
+                <i>Beispiel:</i> Er sagt, er <b>komme</b> morgen (Inf: kommen).<br><br>
+                <b>Ersatzformen:</b> Wenn K-I wie Indikativ aussieht (z.B. wir kommen) → Nutze <b>Konjunktiv II</b> (würde-Form oder Präteritum-Stamm + Umlaut).
+            </div>
+
+            <h2>6. Wortarten-Check</h2>
+            <div class="box">
+                • <b>Pronomen:</b> Personal (ich), Possessiv (mein), Demonstrativ (dieser), Relativ (der/die/das), Indefinit (etwas, niemand).<br>
+                • <b>Nomen-Begleiter:</b> Enden im Dativ oft auf "-n" (dem alte<b>n</b> Mann).
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- SEITE 2: KARTEIKARTEN ZUM ÜBEN -->
+<div class="page">
+    <h1>Karteikarten: Falten & Abfragen</h1>
+    <p style="text-align:center; font-style: italic;">Schneide die Boxen aus. Knicke sie in der Mitte, um Frage und Antwort zu haben.</p>
+    
+    <div class="cards-grid">
+        <div class="card"><div class="card-title">Ersatzprobe "das"</div><div class="card-content">Man schreibt "das" mit einem S, wenn man es durch diese drei Wörter ersetzen kann: <br><b>dies, dieses, welches</b></div></div>
+        <div class="card"><div class="card-title">Wechselpräpositionen</div><div class="card-content"><b>Wo?</b> verlangt den <b>Dativ</b>.<br><b>Wohin?</b> verlangt den <b>Akkusativ</b>.</div></div>
+        
+        <div class="card"><div class="card-title">Konjunktiv I Bildung</div><div class="card-content">Stamm des Verbs + Endung:<br><b>-e, -est, -e, -en, -et, -en</b></div></div>
+        <div class="card"><div class="card-title">Aktiv vs. Passiv</div><div class="card-content">Aktiv: Der Täter handelt.<br>Passiv: Mit dem Objekt geschieht etwas. <br>Formel: <b>werden + Partizip II</b></div></div>
+        
+        <div class="card"><div class="card-title">Relativsatz</div><div class="card-content">Ein Nebensatz, der ein Nomen näher beschreibt. Eingeleitet durch: <br><b>der, die, das, welcher, dessen, deren</b></div></div>
+        <div class="card"><div class="card-title">Passiv: Perfekt</div><div class="card-content">Wie bildet man Passiv im Perfekt?<br><b>bin/bist/ist ... Partizip II + worden</b><br>(z.B. Ich bin operiert worden)</div></div>
+        
+        <div class="card"><div class="card-title">Adverbialsätze</div><div class="card-content">Temporalsatz: <b>als, während</b><br>Kausalsatz: <b>weil, da</b><br>Modalsatz: <b>indem</b></div></div>
+        <div class="card"><div class="card-title">Satzreihe vs. Gefüge</div><div class="card-content">Satzreihe: <b>Hauptsatz + Hauptsatz</b><br>Satzgefüge: <b>Hauptsatz + Nebensatz</b></div></div>
+    </div>
+</div>
+
+</body>
+</html>
